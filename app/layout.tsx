@@ -1,4 +1,3 @@
-// app/layout.tsx
 import "./globals.css"
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Blandine Desrousseaux" }],
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.png", // Ton logo renommé en favicon.png dans /public
   },
   openGraph: {
     title: "Âme au Corps – Massages bien-être",
@@ -37,6 +36,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
+      <head>
+        {/* Favicon explicite pour meilleure compatibilité */}
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+      </head>
       <body className="antialiased">
         {children}
         <script
@@ -46,7 +50,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Âme au Corps",
-              "image": "https://ame-au-corps.vercel.app/ame-au-corps-blanc.png",
+              "image": "https://ameaucorps.fr/ame-au-corps-blanc.png",
               "email": "desrousseaux.blandine@outlook.fr",
               "telephone": "07 69 61 29 46",
               "address": {
@@ -54,7 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 "addressLocality": "Portes-lès-Valence",
                 "addressCountry": "FR"
               },
-              "url": "https://ame-au-corps.vercel.app",
+              "url": "https://ameaucorps.fr",
               "description": "Massages bien-être à Portes-lès-Valence et ses alentours. Réservez votre moment de détente avec Blandine Desrousseaux."
             }),
           }}

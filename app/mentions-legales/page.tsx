@@ -9,6 +9,7 @@ export default function MentionsLegales() {
           <p>
             <strong>Nom :</strong> Blandine Desrousseaux <br />
             <strong>Activité :</strong> Praticienne en massages bien-être (non thérapeutiques) <br />
+            <strong>SIRET :</strong> En cours d’attribution – les démarches sont finalisées. <br />
             <strong>Email :</strong>{' '}
             <a
               href="mailto:desrousseaux.blandine@outlook.fr"

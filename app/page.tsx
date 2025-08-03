@@ -133,50 +133,76 @@ export default function AmeAuCorpsLanding() {
 
 
       {/* Section À propos */}
-      <section id="a-propos" className="py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-light text-[#398195] mb-6">À propos</h2>
-              <div className="w-24 h-1 bg-[#398195] mx-auto rounded-full"></div>
+      <section id="a-propos" className="py-20 bg-gradient-to-br from-[#fef8f4] via-white to-[#f2f7f6]">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-4xl mx-auto">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-light text-[#398195] mb-6">À propos</h2>
+        <div className="w-24 h-1 bg-[#398195] mx-auto rounded-full"></div>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="space-y-6 text-gray-700 leading-relaxed">
+          <p className="text-lg">
+            Bonjour, je suis Blandine, praticienne en massages bien-être. Mon parcours vers cette reconversion
+            professionnelle a été guidé par une expérience personnelle profonde.
+          </p>
+          <p>
+            Après avoir traversé une épreuve douloureuse, j'ai découvert l'importance vitale du lien
+            entre le corps et l'esprit. Cette expérience m'a mené vers l'aromathérapie et les massages
+            thérapeutiques, d'abord pour m'accompagner dans ma guérison.
+          </p>
+          <p>
+            En prenant soin d'une personne gravement malade durant ses derniers moments, j'ai réalisé à quel point le toucher
+            bienveillant peut apporter réconfort et apaisement. C'est cette révélation qui m'a poussée à me former
+            professionnellement pour offrir ce même réconfort à d'autres.
+          </p>
+          <p>
+            Massages ciblés ou intuitifs, à domicile dans la région de Portes-lès-Valence, je vous accompagne avec sincérité et bienveillance dans votre quête de bien-être,
+            en honorant cette connexion sacrée entre votre âme et votre corps.
+          </p>
+        </div>
+
+        <div className="flex justify-center">
+          <div className="relative">
+            <div className="w-80 h-80 rounded-full overflow-hidden shadow-lg border-2 border-[#398195]/40">
+              <img
+                src="/blandine-photo.png"
+                alt="Photo de Blandine"
+                className="w-full h-full object-cover"
+              />
             </div>
-
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6 text-gray-700 leading-relaxed">
-                <p className="text-lg">
-                  Bonjour, je suis Blandine, praticienne en massages bien-être. Mon parcours vers cette reconversion
-                  professionnelle a été guidé par une expérience personnelle profonde.
-                </p>
-                <p>
-                  Après avoir traversé l'épreuve d'un cancer de la peau, j'ai découvert l'importance vitale du lien
-                  entre le corps et l'esprit. Cette expérience m'a menée vers l'aromathérapie et les massages
-                  thérapeutiques, d'abord pour m'accompagner dans ma guérison.
-                </p>
-                <p>
-                  En prenant soin de ma mère durant ses derniers moments, j'ai réalisé à quel point le toucher
-                  bienveillant peut apporter réconfort et apaisement. C'est cette révélation qui m'a poussée à me former
-                  professionnellement pour offrir ce même réconfort à d'autres.
-                </p>
-                <p className="font-medium text-[#398195]">
-                  Aujourd'hui, je vous accompagne avec sincérité et bienveillance dans votre quête de bien-être, en
-                  honorant cette connexion sacrée entre votre âme et votre corps.
-                </p>
-              </div>
-
-              <div className="flex justify-center">
-                <div className="relative">
-                  <div className="w-80 h-80 bg-gradient-to-br from-[#398195]/20 to-gray-100 rounded-full flex items-center justify-center">
-                    <Leaf className="h-24 w-24 text-[#398195]" />
-                  </div>
-                  <div className="absolute -top-4 -right-4 w-16 h-16 bg-[#398195]/10 rounded-full flex items-center justify-center">
-                    <Heart className="h-8 w-8 text-[#398195]" />
-                  </div>
-                </div>
-              </div>
+            <div className="absolute -top-4 -right-4 w-16 h-16 bg-[#398195]/10 rounded-full flex items-center justify-center">
+              <Heart className="h-8 w-8 text-[#398195]" />
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Images décoratives */}
+      <div className="mt-40 flex flex-col md:flex-row justify-center items-center gap-32 w-full">
+        {/* Lotus */}
+        <div className="rounded-lg border-2 border-[#398195]/30 p-2 shadow-md max-w-[320px]">
+          <img
+            src="/lotus.png"
+            alt="Fleur de lotus"
+            className="w-full h-auto object-cover rounded"
+          />
+        </div>
+
+        {/* Institut (très agrandie, pleine largeur possible) */}
+        <div className="w-full px-4">
+          <img
+            src="/institut.jpeg"
+            alt="Institut de massage"
+            className="w-full h-auto object-cover rounded-lg shadow-md"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Section Massages */}
       <section id="massages" className="py-20 bg-gray-50">
@@ -274,7 +300,7 @@ export default function AmeAuCorpsLanding() {
               {/* Anti-spam (honeypot) */}
               <input type="text" name="_honey" style={{ display: "none" }} />
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://ame-au-corps.vercel.app/merci" />
+              <input type="hidden" name="_next" value="https://ameaucorps.fr/merci" />
 
               {/* Nom et prénom */}
               <div>

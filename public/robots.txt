@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ame-au-corps.vercel.app/sitemap.xml
+Sitemap: https://ameaucorps.fr/sitemap.xml
