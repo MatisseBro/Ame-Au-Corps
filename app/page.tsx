@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { Menu, X, Phone, Mail, MapPin, Clock, Heart, Leaf, Sparkles } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Menu, X, Phone, Mail, MapPin, Clock, Heart, Leaf, Sparkles, ArrowUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge"
 export default function AmeAuCorpsLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [formData, setFormData] = useState({
+    
     nom: "",
     email: "",
     telephone: "",
@@ -46,6 +47,18 @@ export default function AmeAuCorpsLanding() {
     { nom: "Massages Ciblés", duree: "30 min", prix: "40€", type: "À l'huile ou habillé", description: "Massage spécifique selon vos besoins (dos, nuque, jambes...)", effets: "Soulagement ciblé, amélioration de la mobilité" },
   ]
 
+const [showBackToTop, setShowBackToTop] = useState(false)
+
+useEffect(() => {
+  const onScroll = () => setShowBackToTop(window.scrollY > 300)
+  window.addEventListener("scroll", onScroll, { passive: true })
+  onScroll()
+  return () => window.removeEventListener("scroll", onScroll)
+}, [])
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" })
+}
 
   return (
     <div className="min-h-screen bg-white">
@@ -105,28 +118,28 @@ export default function AmeAuCorpsLanding() {
   className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#398195]/10 via-white to-gray-50 pt-16"
 >
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <div className="max-w-4xl mx-auto">
-      <div className="mb-8">
-        <img
-          src="/ame-au-corps.png"
-          alt="Logo Âme au Corps"
-          className="h-60 mx-auto mb-6 animate-pulse"
-        />
-      </div>
-      <h1 className="text-5xl md:text-7xl font-light text-[#398195] mb-8 tracking-wide">
-        Âme au Corps
-      </h1>
-      <blockquote className="text-2xl md:text-3xl text-gray-600 font-light italic mb-12 leading-relaxed">
-        "Chéris ton corps, l'âme y fleurira."
-      </blockquote>
-      <Button
-        onClick={() => scrollToSection("reservation")}
-        className="bg-[#398195] hover:bg-[#2d6b7a] text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-      >
-        Prendre rendez-vous
-      </Button>
+  <div className="max-w-4xl mx-auto">
+    <div className="mb-6"> {/* ↓ marge réduite pour remonter le logo */}
+      <img
+        src="/logo-ame-au-corps.png"
+        alt="Logo Âme au Corps"
+        className="h-72 mx-auto mb-4 animate-pulse" 
+      />
     </div>
+    <h1 className="text-5xl md:text-7xl font-light text-[#398195] mb-8 tracking-wide">
+      Âme au Corps
+    </h1>
+    <blockquote className="text-2xl md:text-3xl text-gray-600 font-light italic mb-12 leading-relaxed">
+      "Chéris ton corps, l'âme y fleurira."
+    </blockquote>
+    <Button
+      onClick={() => scrollToSection("reservation")}
+      className="bg-[#398195] hover:bg-[#2d6b7a] text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+    >
+      Prendre rendez-vous
+    </Button>
   </div>
+</div>
 </section>
 
 
@@ -164,41 +177,60 @@ export default function AmeAuCorpsLanding() {
         </div>
 
         <div className="flex justify-center">
-          <div className="relative">
-            <div className="w-80 h-80 rounded-full overflow-hidden shadow-lg border-2 border-[#398195]/40">
-              <img
-                src="/blandine-photo.png"
-                alt="Photo de Blandine"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -top-4 -right-4 w-16 h-16 bg-[#398195]/10 rounded-full flex items-center justify-center">
-              <Heart className="h-8 w-8 text-[#398195]" />
-            </div>
-          </div>
-        </div>
+  <div className="relative">
+    {/* Photo circulaire */}
+    <div className="w-80 h-80 rounded-full overflow-hidden shadow-lg border-2 border-[#398195]/40">
+      <img
+        src="/section-accueil.jpeg"
+        alt="Photo de Blandine"
+        className="w-full h-full object-cover"
+      />
+    </div>
+
+    {/* Cœur animé */}
+    <div className="absolute -top-4 -right-4 w-16 h-16 bg-[#398195]/10 rounded-full flex items-center justify-center animate-pulse-slow">
+      <Heart className="h-8 w-8 text-[#398195]" />
+    </div>
+  </div>
+</div>
+
+<style jsx>{`
+  @keyframes pulse-slow {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.8;
+    }
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 2.5s infinite ease-in-out;
+  }
+`}</style>
       </div>
 
       {/* Images décoratives */}
-      <div className="mt-40 flex flex-col md:flex-row justify-center items-center gap-32 w-full">
-        {/* Lotus */}
-        <div className="rounded-lg border-2 border-[#398195]/30 p-2 shadow-md max-w-[320px]">
-          <img
-            src="/lotus.png"
-            alt="Fleur de lotus"
-            className="w-full h-auto object-cover rounded"
-          />
-        </div>
+      <div className="mt-40 flex flex-col md:flex-row justify-center items-center gap-20 w-full">
+  {/* Lotus */}
+  <div className="rounded-lg border-2 border-[#398195]/30 p-2 shadow-md w-full max-w-[700px]">
+    <img
+      src="/fleurs-lotus.jpeg"
+      alt="Fleur de lotus"
+      className="w-full h-[250px] object-cover rounded-lg"
+    />
+  </div>
 
-        {/* Institut (très agrandie, pleine largeur possible) */}
-        <div className="w-full px-4">
-          <img
-            src="/institut.jpeg"
-            alt="Institut de massage"
-            className="w-full h-auto object-cover rounded-lg shadow-md"
-          />
-        </div>
-      </div>
+  {/* Institut */}
+  <div className="rounded-lg border-2 border-[#398195]/30 p-2 shadow-md w-full max-w-[700px]">
+    <img
+      src="/institut.jpeg"
+      alt="Institut de massage"
+      className="w-full h-[250px] object-cover rounded-lg"
+    />
+  </div>
+</div>
     </div>
   </div>
 </section>
@@ -206,22 +238,47 @@ export default function AmeAuCorpsLanding() {
 
       {/* Section Massages */}
       <section id="massages" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-light text-[#398195] mb-6">Massages proposés</h2>
-            <div className="w-24 h-1 bg-[#398195] mx-auto rounded-full mb-4"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Découvrez mes différentes techniques de massage, chacune adaptée à vos besoins spécifiques pour votre
-              bien-être et votre détente.
-            </p>
-          </div>
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-light text-[#398195] mb-6">Massages proposés</h2>
+      <div className="w-24 h-1 bg-[#398195] mx-auto rounded-full mb-4"></div>
+      <p className="text-gray-600 max-w-2xl mx-auto">
+        Découvrez mes différentes techniques de massage, chacune adaptée à vos besoins spécifiques pour votre
+        bien-être et votre détente.
+      </p>
+    </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {massages.map((massage, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-0 shadow-md">
+    {(() => {
+      const accents = [
+        { bar: "bg-[#398195]", dot: "bg-[#398195]", border: "border-[#398195]/10" },
+        { bar: "bg-amber-500", dot: "bg-amber-500", border: "border-amber-200" },
+        { bar: "bg-violet-500", dot: "bg-violet-500", border: "border-violet-200" },
+        { bar: "bg-sky-500", dot: "bg-sky-500", border: "border-sky-200" },
+        { bar: "bg-rose-500", dot: "bg-rose-500", border: "border-rose-200" },
+        { bar: "bg-emerald-500", dot: "bg-emerald-500", border: "border-emerald-200" },
+      ];
+
+      return (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {massages.map((massage, index) => {
+            const a = accents[index % accents.length];
+            return (
+              <Card
+                key={index}
+                className={`relative overflow-hidden border ${a.border} shadow-md hover:shadow-lg transition-shadow duration-300 bg-white`}
+              >
+                {/* Barre d’accent en haut */}
+                <span className={`absolute inset-x-0 top-0 h-1 ${a.bar}`} />
+
                 <CardHeader className="pb-4">
                   <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="text-xl text-[#398195] font-medium">{massage.nom}</CardTitle>
+                    <div className="flex items-center gap-2">
+                      {/* Pastille d’accent animée */}
+                      <span
+                        className={`inline-block w-2.5 h-2.5 rounded-full ${a.dot} animate-[pulse_2.4s_ease-in-out_infinite]`}
+                      />
+                      <CardTitle className="text-xl text-[#398195] font-medium">{massage.nom}</CardTitle>
+                    </div>
                     <Badge variant="outline" className="text-[#398195] border-[#398195]">
                       {massage.type}
                     </Badge>
@@ -234,6 +291,7 @@ export default function AmeAuCorpsLanding() {
                     <div className="font-semibold text-[#398195]">{massage.prix}</div>
                   </div>
                 </CardHeader>
+
                 <CardContent>
                   <CardDescription className="text-gray-700 mb-3">{massage.description}</CardDescription>
                   <div className="text-sm text-gray-600">
@@ -241,10 +299,28 @@ export default function AmeAuCorpsLanding() {
                   </div>
                 </CardContent>
               </Card>
-            ))}
-          </div>
+            );
+          })}
         </div>
-      </section>
+      );
+    })()}
+  </div>
+
+  <style jsx>{`
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.15);
+        opacity: 0.85;
+      }
+    }
+  `}</style>
+</section>
+
+
 
       {/* Section Réservation */}
       <section id="reservation" className="py-20 bg-white">
@@ -464,6 +540,23 @@ export default function AmeAuCorpsLanding() {
       </div>
     </div>
   </div>
+  {showBackToTop && (
+  <button
+    onClick={scrollToTop}
+    aria-label="Remonter en haut"
+    title="Remonter en haut"
+    className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full
+               bg-[#398195]/80 text-white shadow-lg backdrop-blur-sm
+               border-2 border-white
+               flex items-center justify-center
+               transition-all duration-200
+               hover:bg-[#398195] hover:shadow-xl hover:scale-105
+               focus:outline-none focus:ring-2 focus:ring-white/60"
+  >
+    <ArrowUp className="w-6 h-6" />
+  </button>
+)}
+
 </section>
 
 
