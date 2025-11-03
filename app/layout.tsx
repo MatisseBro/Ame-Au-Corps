@@ -1,10 +1,11 @@
-import "./globals.css"
-import type { Metadata } from "next"
-import type { ReactNode } from "react"
+import "./globals.css";
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Âme au Corps – Massages bien-être",
-  description: "Massages bien-être à Portes-lès-Valence avec Blandine Desrousseaux.",
+  description:
+    "Massages bien-être à Portes-lès-Valence avec Blandine Desrousseaux.",
   keywords: [
     "massage Portes-lès-Valence",
     "massage bien-être",
@@ -18,7 +19,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Âme au Corps – Massages bien-être",
-    description: "Praticienne certifiée en massages bien-être à Portes-lès-Valence.",
+    description:
+      "Praticienne certifiée en massages bien-être à Portes-lès-Valence.",
     url: "https://ame-au-corps.vercel.app",
     siteName: "Âme au Corps",
     type: "website",
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-}
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -49,21 +51,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "Âme au Corps",
-              "image": "https://ameaucorps.fr/ame-au-corps-blanc.png",
-              "email": "desrousseaux.blandine@outlook.fr",
-              "telephone": "07 69 61 29 46",
-              "address": {
+              name: "Âme au Corps",
+              image: "https://ameaucorps.fr/logo-ame-au-corps-blanc.png",
+              email: "desrousseaux.blandine@outlook.fr",
+              telephone: "07 69 61 29 46",
+              address: {
                 "@type": "PostalAddress",
-                "addressLocality": "Portes-lès-Valence",
-                "addressCountry": "FR"
+                addressLocality: "Portes-lès-Valence",
+                addressCountry: "FR",
               },
-              "url": "https://ameaucorps.fr",
-              "description": "Massages bien-être à Portes-lès-Valence et ses alentours. Réservez votre moment de détente avec Blandine Desrousseaux."
+              url: "https://ameaucorps.fr",
+              description:
+                "Massages bien-être à Portes-lès-Valence et ses alentours. Réservez votre moment de détente avec Blandine Desrousseaux.",
             }),
           }}
         />
       </body>
     </html>
-  )
+  );
 }
