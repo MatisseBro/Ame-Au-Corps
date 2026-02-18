@@ -1,0 +1,15 @@
+.pulseSlow {
+  animation: pulse-slow 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+}
