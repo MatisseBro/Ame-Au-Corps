@@ -10,6 +10,7 @@ type Massage = {
   type: string
   description: string
   effets: string
+  lien?: string
 }
 
 export function MassagesSection({ massages }: { massages: Massage[] }) {
@@ -69,6 +70,8 @@ function CardBlock({
   accent: { bar: string; dot: string; border: string }
   cardBase: string
 }) {
+  const bookingHref = massage.lien ?? "https://tidycal.com/ameaucorps"
+
   return (
     <Card className={`${cardBase} ${accent.border}`}>
       <span className={`absolute inset-x-0 top-0 h-1 ${accent.bar}`} />
@@ -102,6 +105,17 @@ function CardBlock({
           <strong>Effets :</strong> {massage.effets}
         </div>
       </CardContent>
+
+      <div className="pt-0 pb-2 flex justify-center">
+        <a
+          href={bookingHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-3.5 py-1.5 text-xs font-medium rounded-full bg-[#398195] text-white hover:bg-[#2d6b7a] shadow-sm transition transform translate-y-[16px]"
+        >
+          Réservez dès maintenant
+        </a>
+      </div>
     </Card>
   )
 }

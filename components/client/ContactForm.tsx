@@ -3,18 +3,8 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 
-type Massage = {
-  nom: string
-  duree: string
-  prix: string
-  type: string
-  description: string
-  effets: string
-}
-
-export function ContactForm({ massages }: { massages: Massage[] }) {
+export function ContactForm() {
   const [errors, setErrors] = useState({ nom: "", telephone: "" })
 
   const validateNom = (value: string) => {
@@ -46,6 +36,7 @@ export function ContactForm({ massages }: { massages: Massage[] }) {
     <Card className="border-0 shadow-lg">
       <CardHeader>
         <CardTitle className="text-2xl text-[#398195]">Envoyez-moi un message</CardTitle>
+        <p className="text-sm text-gray-600">Une question particuliere ou un besoin specifique ? Partagez-le et je vous reponds rapidement.</p>
       </CardHeader>
       <CardContent>
         <form
@@ -122,23 +113,6 @@ export function ContactForm({ massages }: { massages: Massage[] }) {
             {errors.telephone && <p className="text-sm text-red-600 mt-1">{errors.telephone}</p>}
           </div>
 
-          <div>
-            <label htmlFor="typeMassage" className="block text-sm font-medium text-gray-700 mb-2">
-              Type de massage souhaité
-            </label>
-            <select
-              id="typeMassage"
-              name="typeMassage"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-800 focus:ring-2 focus:ring-[#398195] focus:border-transparent transition-colors"
-            >
-              <option value="">Sélectionnez un massage</option>
-              {massages.map((massage, index) => (
-                <option key={index} value={massage.nom}>
-                  {massage.nom}
-                </option>
-              ))}
-            </select>
-          </div>
 
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
@@ -150,7 +124,7 @@ export function ContactForm({ massages }: { massages: Massage[] }) {
               required
               rows={4}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-800 focus:ring-2 focus:ring-[#398195] focus:border-transparent transition-colors resize-none"
-              placeholder="Décrivez vos besoins, vos attentes ou posez vos questions..."
+              placeholder="Detaillez votre question ou precisez votre besoin, je vous reponds vite."
             />
           </div>
 

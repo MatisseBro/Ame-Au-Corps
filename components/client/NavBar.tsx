@@ -5,14 +5,16 @@ import { Heart, Menu, X } from "lucide-react"
 
 const links = [
   { id: "accueil", label: "accueil" },
-  { id: "a-propos", label: "À propos" },
+  { id: "a-propos", label: "A propos" },
   { id: "massages", label: "massages" },
-  { id: "reservation", label: "Réservation" },
+  { id: "reservation", label: "Reservation" },
   { id: "contact", label: "contact" },
 ]
 
-export function NavBar() {
+export function NavBar({ basePath = "" }: { basePath?: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const prefix = basePath || ""
 
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 border-b border-gray-100">
@@ -20,14 +22,14 @@ export function NavBar() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
             <Heart className="h-6 w-6 text-[#398195]" />
-            <span className="text-xl font-bold text-[#398195]">Âme au Corps</span>
+            <span className="text-xl font-bold text-[#398195]">Ame au Corps</span>
           </div>
 
           <div className="hidden md:flex space-x-8">
             {links.map((item) => (
               <a
                 key={item.id}
-                href={`#${item.id}`}
+                href={`${prefix}#${item.id}`}
                 className="text-gray-700 hover:text-[#398195] transition-colors duration-200 capitalize font-medium"
               >
                 {item.label}
@@ -50,7 +52,7 @@ export function NavBar() {
             {links.map((item) => (
               <a
                 key={item.id}
-                href={`#${item.id}`}
+                href={`${prefix}#${item.id}`}
                 onClick={() => setIsMenuOpen(false)}
                 className="block w-full text-left px-4 py-2 text-gray-700 hover:text-[#398195] hover:bg-gray-50 transition-colors capitalize"
               >

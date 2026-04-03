@@ -17,6 +17,7 @@ const massages = [
     type: "À l'huile",
     description: "Massage relaxant complet du corps pour libérer les tensions",
     effets: "Détente profonde, amélioration de la circulation",
+    lien: "https://tidycal.com/ameaucorps/massage-hypotenuse",
   },
   {
     nom: "Massage Balinais",
@@ -25,6 +26,7 @@ const massages = [
     type: "À l'huile",
     description: "Massage traditionnel indonésien aux huiles essentielles",
     effets: "Relaxation intense, équilibre énergétique",
+    lien: "https://tidycal.com/ameaucorps/massage-balinais",
   },
   {
     nom: "Massage Lomi-Lomi",
@@ -33,6 +35,7 @@ const massages = [
     type: "À l'huile",
     description: "Massage hawaïen fluide et enveloppant",
     effets: "Harmonie corps-esprit, lâcher-prise",
+    lien: "https://tidycal.com/ameaucorps/massage-lomi-lomi",
   },
   {
     nom: "Massage Amma",
@@ -41,6 +44,7 @@ const massages = [
     type: "Habillé",
     description: "Massage japonais sur chaise, idéal en entreprise",
     effets: "Soulagement des tensions, regain d'énergie",
+    lien: "https://tidycal.com/ameaucorps/massage-amma",
   },
   {
     nom: "Massages Ciblés",
@@ -49,6 +53,7 @@ const massages = [
     type: "À l'huile ou habillé",
     description: "Massage spécifique selon vos besoins (dos, nuque, jambes...)",
     effets: "Soulagement ciblé, amélioration de la mobilité",
+    lien: "https://tidycal.com/ameaucorps/massages-cibles",
   },
 ]
 
@@ -60,6 +65,23 @@ export default function AmeAuCorpsLanding() {
       <HeroSection />
       <AboutSection />
       <MassagesSection massages={massages} />
+
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center rounded-2xl border border-[#398195]/15 bg-[#398195]/5 px-6 py-8 shadow-sm">
+            <h2 className="text-2xl font-light text-[#398195] mb-3">Envie d'en savoir plus ?</h2>
+            <p className="text-gray-700 mb-6">
+              Découvrez la page dédiée aux massages bien-être à Portes-lès-Valence : fonctionnement, prestations et réservation en ligne.
+            </p>
+            <a
+              href="/massage-portes-les-valence"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#398195] text-white hover:bg-[#2d6b7a] transition shadow"
+            >
+              En savoir plus sur mes massages
+            </a>
+          </div>
+        </div>
+      </section>
       <ReservationSection />
 
       <section id="contact" className="py-20 bg-gray-50">
@@ -68,10 +90,13 @@ export default function AmeAuCorpsLanding() {
             <div className="text-center mb-16">
               <h2 className="text-4xl font-light text-[#398195] mb-6">Contact</h2>
               <div className="w-24 h-1 bg-[#398195] mx-auto rounded-full"></div>
+              <p className="text-gray-700 max-w-2xl mx-auto mt-4">
+                Une question particuliere ou besoin d&apos;un conseil ? Partagez vos besoins, je vous reponds rapidement.
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12">
-              <ContactForm massages={massages} />
+              <ContactForm />
 
               <div className="space-y-8">
                 <Card className="border-0 shadow-lg">
@@ -116,24 +141,6 @@ export default function AmeAuCorpsLanding() {
                   </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-lg">
-                  <CardHeader>
-                    <CardTitle className="text-xl text-[#398195]">Modalités de paiement</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-700">
-                      <strong>Moyens acceptés :</strong>
-                      <br />
-                      • Espèces
-                      <br />
-                      • Virement bancaire
-                      <br />• Chèques
-                    </p>
-                    <p className="text-sm text-gray-600 mt-2">
-                      <em>Paiement par carte non accepté</em>
-                    </p>
-                  </CardContent>
-                </Card>
               </div>
             </div>
           </div>

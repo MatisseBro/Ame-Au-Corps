@@ -1,5 +1,7 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+
+const bookingLink = "https://tidycal.com/ameaucorps";
 
 export function HeroSection() {
   return (
@@ -20,7 +22,7 @@ export function HeroSection() {
             />
           </div>
           <h1 className="text-5xl md:text-7xl font-light text-[#398195] mb-8 tracking-wide">
-            Âme au Corps
+            Âme au Corps Portes-lès-Valence
           </h1>
           <blockquote className="text-2xl md:text-3xl text-gray-600 font-light italic mb-12 leading-relaxed">
             "Chéris ton corps, l&apos;âme y fleurira."
@@ -29,10 +31,12 @@ export function HeroSection() {
             asChild
             className="bg-[#398195] hover:bg-[#2d6b7a] text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
-            <a href="#reservation">Prendre rendez-vous</a>
+            <a href={bookingLink} target="_blank" rel="noopener noreferrer">
+              Prendre rendez-vous
+            </a>
           </Button>
         </div>
       </div>
     </section>
-  )
+  );
 }
