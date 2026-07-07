@@ -70,8 +70,6 @@ function CardBlock({
   accent: { bar: string; dot: string; border: string }
   cardBase: string
 }) {
-  const bookingHref = massage.lien ?? "https://tidycal.com/ameaucorps"
-
   return (
     <Card className={`${cardBase} ${accent.border}`}>
       <span className={`absolute inset-x-0 top-0 h-1 ${accent.bar}`} />
@@ -106,15 +104,10 @@ function CardBlock({
         </div>
       </CardContent>
 
-      <div className="pt-0 pb-2 flex justify-center">
-        <a
-          href={bookingHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-3.5 py-1.5 text-xs font-medium rounded-full bg-[#398195] text-white hover:bg-[#2d6b7a] shadow-sm transition transform translate-y-[16px]"
-        >
-          Réservez dès maintenant
-        </a>
+      <div className="pt-0 pb-4 flex justify-center">
+        <span className="px-3.5 py-1.5 text-xs font-medium rounded-full bg-amber-50 border border-amber-200 text-amber-700 transform translate-y-[16px]">
+          Disponible dès le 21 juillet
+        </span>
       </div>
     </Card>
   )

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   CalendarDays,
@@ -13,7 +12,6 @@ import {
 import { NavBar } from "@/components/client/NavBar";
 import { FooterSection } from "@/components/sections/Footer";
 
-const bookingLink = "https://tidycal.com/ameaucorps";
 const phone = "07 69 61 29 46";
 const email = "desrousseaux.blandine@outlook.fr";
 
@@ -210,14 +208,10 @@ export default function MassagePortesLesValencePage() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <Button
-                asChild
-                className="px-6 py-3 text-base rounded-full shadow-lg hover:shadow-xl transition bg-[#398195] hover:bg-[#2d6b7a]"
-              >
-                <a href={bookingLink} target="_blank" rel="noopener noreferrer">
-                  Réserver en ligne
-                </a>
-              </Button>
+              <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-sm font-medium">
+                <CalendarDays className="h-4 w-4 shrink-0" />
+                Réservation disponible dès le 21 juillet
+              </div>
 
               <a
                 href="https://www.ameaucorps.fr/#massages"
@@ -612,18 +606,13 @@ export default function MassagePortesLesValencePage() {
                 </div>
 
                 <div className="flex flex-col items-center gap-4 pt-2">
-                  <Button
-                    asChild
-                    className="px-8 py-3 text-base rounded-full shadow-lg hover:shadow-xl transition bg-[#398195] hover:bg-[#2d6b7a]"
-                  >
-                    <a
-                      href={bookingLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Réserver en ligne
-                    </a>
-                  </Button>
+                  <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-800">
+                    <CalendarDays className="h-5 w-5 shrink-0" />
+                    <p className="text-sm font-medium">
+                      La réservation en ligne est momentanément indisponible.<br />
+                      <span className="font-semibold">Réouverture à partir du 21 juillet.</span>
+                    </p>
+                  </div>
 
                   <a
                     href="https://www.ameaucorps.fr/#massages"
@@ -679,14 +668,10 @@ export default function MassagePortesLesValencePage() {
                   Prêt·e à réserver directement ? Choisissez votre créneau en ligne ou revenez vers moi pour valider ensemble le rendez-vous.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <Button
-                    asChild
-                    className="px-6 py-3 text-sm rounded-full shadow-md hover:shadow-lg transition bg-[#398195] hover:bg-[#2d6b7a]"
-                  >
-                    <a href={bookingLink} target="_blank" rel="noopener noreferrer">
-                      Réserver en ligne
-                    </a>
-                  </Button>
+                  <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-sm font-medium">
+                    <CalendarDays className="h-4 w-4 shrink-0" />
+                    Réservation disponible dès le 21 juillet
+                  </div>
                   <a
                     href={`mailto:${email}`}
                     className="inline-flex items-center px-4 py-3 rounded-full border transition"

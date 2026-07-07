@@ -1,10 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CalendarDays, CreditCard, Sparkles } from "lucide-react";
 
 export function ReservationSection() {
-  const bookingLink = "https://tidycal.com/ameaucorps";
-
   return (
     <section
       id="reservation"
@@ -71,18 +68,13 @@ export function ReservationSection() {
                     </div>
                   </div>
 
-                  <Button
-                    asChild
-                    className="bg-[#398195] hover:bg-[#2d6b7a] text-white px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-base"
-                  >
-                    <a
-                      href={bookingLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Réserver en ligne
-                    </a>
-                  </Button>
+                  <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-800">
+                    <CalendarDays className="h-5 w-5 shrink-0" />
+                    <p className="text-sm font-medium">
+                      La réservation en ligne est momentanément indisponible.<br />
+                      <span className="font-semibold">Réouverture à partir du 21 juillet.</span>
+                    </p>
+                  </div>
                 </div>
 
                 <div className="bg-[#398195]/5 rounded-3xl p-8 md:p-10 border border-[#398195]/10">
