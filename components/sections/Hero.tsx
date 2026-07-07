@@ -1,7 +1,5 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-
-const bookingLink = "https://tidycal.com/ameaucorps";
+import { CalendarDays } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -27,14 +25,13 @@ export function HeroSection() {
           <blockquote className="text-2xl md:text-3xl text-gray-600 font-light italic mb-12 leading-relaxed">
             "Chéris ton corps, l&apos;âme y fleurira."
           </blockquote>
-          <Button
-            asChild
-            className="bg-[#398195] hover:bg-[#2d6b7a] text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-          >
-            <a href={bookingLink} target="_blank" rel="noopener noreferrer">
-              Prendre rendez-vous
-            </a>
-          </Button>
+          <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-800">
+            <CalendarDays className="h-5 w-5 shrink-0" />
+            <p className="text-sm font-medium">
+              La réservation en ligne est momentanément indisponible.{" "}
+              <span className="font-semibold">Réouverture à partir du 21 juillet.</span>
+            </p>
+          </div>
         </div>
       </div>
     </section>
